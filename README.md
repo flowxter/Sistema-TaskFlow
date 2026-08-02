@@ -191,6 +191,11 @@ repositorio, cada uno apuntando a su carpeta.
 El servicio se construye con el [`Dockerfile`](back/Dockerfile) del módulo: build multietapa que
 deja una imagen final con solo el JRE y el jar, ejecutada por un usuario sin privilegios.
 
+Al ser un monorepo, el servicio necesita **Root Directory = `back`**; sin ese ajuste Railway
+inspecciona la raíz, no encuentra ninguna aplicación y el build falla antes de empezar.
+[`railway.json`](back/railway.json) fija el builder para que la elección no dependa de la
+detección automática.
+
 | Variable | Valor |
 |---|---|
 | `DB_URL` | `jdbc:postgresql://${{Postgres.PGHOST}}:${{Postgres.PGPORT}}/${{Postgres.PGDATABASE}}` |
