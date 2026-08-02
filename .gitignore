@@ -1,0 +1,17 @@
+# Reglas comunes al monorepo. Cada modulo mantiene ademas las suyas
+# en back/.gitignore y front/.gitignore.
+
+# Entornos y secretos
+.env
+.env.local
+.env.production
+
+# Editores y sistema operativo
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Plataformas de despliegue
+.vercel
