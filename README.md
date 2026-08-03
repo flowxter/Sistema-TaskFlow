@@ -212,14 +212,15 @@ El puerto no se configura: Railway lo inyecta en `PORT` y `application.yml` lo l
 
 ### Frontend en Vercel
 
-Con *Root Directory* en `front`. Vercel detecta Vite y no necesita más configuración salvo:
+Con *Root Directory* en `front`. Vercel detecta Vite y no necesita variables de entorno.
 
-| Variable | Valor |
-|---|---|
-| `VITE_API_URL` | URL pública del backend en Railway, sin barra final |
+Las peticiones salen con ruta relativa y [`vercel.json`](front/vercel.json) las reenvía al backend
+mediante un *rewrite*. El navegador ve un único origen, así que no hay peticiones entre dominios:
+desaparecen el preflight y el CORS, y el cliente no necesita conocer la URL del servidor.
 
-Vite sustituye `import.meta.env` **en tiempo de build**, así que un cambio de esta variable exige
-volver a desplegar: no basta con guardarla.
+El cliente admite además `VITE_API_URL` para apuntar a un backend arbitrario sin tocar código. Si
+se define, sustituye al rewrite y las peticiones vuelven a ser entre dominios. Vite resuelve
+`import.meta.env` **en tiempo de build**, de modo que cambiar esa variable obliga a redesplegar.
 
 ### Sobre el esquema y los datos
 
