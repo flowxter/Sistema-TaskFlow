@@ -4,6 +4,18 @@
     {
       "source": "/api/:path*",
       "destination": "https://sistema-taskflow-production.up.railway.app/api/:path*"
+    },
+    {
+      "source": "/swagger-ui/:path*",
+      "destination": "https://sistema-taskflow-production.up.railway.app/swagger-ui/:path*"
+    },
+    {
+      "source": "/v3/api-docs",
+      "destination": "https://sistema-taskflow-production.up.railway.app/v3/api-docs"
+    },
+    {
+      "source": "/v3/api-docs/:path*",
+      "destination": "https://sistema-taskflow-production.up.railway.app/v3/api-docs/:path*"
     }
   ]
 }

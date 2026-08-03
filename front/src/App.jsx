@@ -58,7 +58,7 @@ export default function App() {
           <span className="appHeader__tagline">Gestión de proyectos · Spring Boot + React</span>
         </div>
         <p className="appHeader__meta">
-          API <a href="http://localhost:8080/swagger-ui.html">/swagger-ui.html</a>
+          API <a href="/swagger-ui/index.html" target="_blank" rel="noreferrer">/swagger-ui</a>
         </p>
       </header>
 
